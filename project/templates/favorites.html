@@ -1,0 +1,1 @@
+{% extends 'base.html' %}{% block content %}<section class="page-title"><p class="eyebrow">Saved for later</p><h1>My favorite books</h1></section><div class="card-grid">{% for book in books %}{% include '_book_card.html' %}{% else %}<p>You have no favorites yet. <a href="{{ url_for('books') }}">Browse books to save some.</a></p>{% endfor %}</div>{% endblock %}
