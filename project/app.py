@@ -1,4 +1,9 @@
-"""Smart Library Management System — a CS50 final project."""
+"""Smart Library Management System — a CS50 final project.
+
+AI assistance disclosure: ChatGPT was used to help draft the initial project
+structure and explain Flask/SQLite concepts. The author must understand, test,
+and be able to explain all implementation choices before submitting to CS50.
+"""
 import os
 import sqlite3
 from datetime import date, timedelta
@@ -66,6 +71,11 @@ def template_globals(): return {"today": date.today().isoformat(), "fine_per_day
 
 @app.route("/")
 def index(): return render_template("index.html", books=get_db().execute("SELECT * FROM books ORDER BY title LIMIT 6").fetchall())
+
+@app.route("/video-intro")
+def video_intro():
+    """A clean opening title card for the CS50 project-demo recording."""
+    return render_template("video_intro.html")
 
 @app.route("/register", methods=["GET","POST"])
 def register():
